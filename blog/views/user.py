@@ -10,7 +10,7 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-
+'''
 @api_view(['GET'])
 def get_users(request):
     try:
@@ -46,4 +46,5 @@ def get_users(request):
         return Response(
             {"error": str(e)},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
-        )
+    )
+'''
