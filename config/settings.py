@@ -29,7 +29,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
-# showed application, we can add more appliction
+# showed application, we can add more application
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

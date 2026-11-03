@@ -2,21 +2,18 @@ from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
 from .views.user import UserViewSet
-from .views import PostViewSet, get_posts
-from .views import CommentViewSet, get_comments
-from .views import CategoryViewSet, get_categories
+from .views import PostViewSet
+from .views import CommentViewSet
+from .views import CategoryViewSet
 
 router = DefaultRouter()
-router.register('posts', PostViewSet)
 router.register('users', UserViewSet, basename='users')
-#router.register('comments', CommentViewSet)
-#router.register('categories', CategoryViewSet)
+router.register('posts', PostViewSet, basename='posts')
+router.register('comments', CommentViewSet, basename='comments')
+router.register('categories', CategoryViewSet, basename='categories')
 
 urlpatterns =[
-    path('posts/get_post/', get_posts, name='get_posts'),
     path('', include(router.urls)),
-   # path('comment/get_comments/', get_comments, name='get_comment'),
-    #path('catategory/get_categories/', get_categories, name='get_categories'),
 
 ]
 urlpatterns +=router.urls

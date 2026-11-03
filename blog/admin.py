@@ -3,10 +3,10 @@ from .models import Post, User, Category, Comment
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title_id', 'title', 'author')
+    list_display = ('id', 'title', 'author')
     list_filter = ('categories', 'author')
-    search_fields = ('title', 'content', 'auth0r__username')
-    ordering = ('title_id',)
+    search_fields = ('title', 'content', 'author_username')
+    ordering = ('id',)
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -19,8 +19,8 @@ class CategoryAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('id', 'post', 'author', 'created_at')
     list_filter = ('created_at', 'author')
-    search_fields = ('content', 'author__username', 'post__title')
-    ordering = ('-created_at',)
+    search_fields = ('content', 'author_username', 'post_title')
+    ordering = ('created_at',)
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
