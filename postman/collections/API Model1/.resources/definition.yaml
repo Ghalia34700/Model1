@@ -1,0 +1,12 @@
+$kind: collection
+description: Buy or rent spacecrafts
+variables:
+  baseUrl: /
+auth:
+  - id: a798ceac-1699-46a0-b67b-ff53c40bfd42
+    type: apikey
+    name: apikey auth
+    credentials:
+      key: X-Api-Key
+      value: "{{apiKey}}"
+      in: header
