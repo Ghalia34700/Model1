@@ -6,7 +6,7 @@ from .views.user import UserViewSet
 from .views import PostViewSet
 from .views import CommentViewSet
 from .views import CategoryViewSet
-
+from blog.views.summarize import summarize_view
 from .view import summarize_post_view
 
 
@@ -20,8 +20,9 @@ urlpatterns =[
     path('', include(router.urls)),
     path('posts/generate/', generate_post, name='generate_post'),
     path("posts/<int:post_id>/summarize/",summarize_post_view,
-         name="summarize-post"
-         ),
+         name="summarize-post"),
+    path("api/posts/<int:post_id>/summarize/", summarize_view,
+         name="summarize-post"),
 
 ]
 urlpatterns +=router.urls

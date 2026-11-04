@@ -3,18 +3,25 @@ from ..client import ContentClient
 
 MAX_SUMMARY_LENGTH = 500
 
+
+class PostNotFoundError(ValueError):
+    """Raised when no post exists for the given id."""
+
+
 def _build_prompt(text):
     return (
-        f"Summarize the following blog post in at most {MAX_SUMMARY_LENGTH}"
-        f"characters. Return only the summary. \n\n{text}"
+        f"Summarize the following blog post in at most {MAX_SUMMARY_LENGTH} "
+        f"characters. Return only the summary.\n\n{text}"
     )
+
+
 def summarize_post(post_id):
     if not isinstance(post_id, int) or isinstance(post_id, bool) or post_id <= 0:
         raise ValueError("post_id must be a positive integer")
 
     post = Post.objects.filter(pk=post_id).first()
     if post is None:
-        raise ValueError(f"No post found with id {post_id}")
+        raise PostNotFoundError(f"No post found with id {post_id}")
 
     if not post.content or not post.content.strip():
         raise ValueError("Post content is empty")
