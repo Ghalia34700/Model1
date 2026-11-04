@@ -17,9 +17,9 @@ def validate_title(title: str, min_length: int = 5) -> str:
     """Title validation is just text validation with a shorter minimum."""
     return validate_text_input(title, min_length, field_name="Title")
 
-def generate_ai_content(prompt: str, system: str = None) -> str:
+def generate_ai_content(prompt: str) -> str:
     client = ContentClient()
-    result = client.generate(prompt, system=system)
+    result = client.generate(prompt)
     print("result", result)
 
     cleaned_result = result.strip()

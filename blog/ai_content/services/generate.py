@@ -1,6 +1,6 @@
 from venv import logger
 
-from ai_content.service.utils import validate_title, generate_ai_content
+from ..services.utils import validate_title, generate_ai_content
 
 
 def _build_generate_prompt(title: str, tone: str = None) -> str:
