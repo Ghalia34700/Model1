@@ -23,6 +23,5 @@ urlpatterns =[
          name="summarize-post"),
     path("api/posts/<int:post_id>/summarize/", summarize_view,
          name="summarize-post"),
-
 ]
 urlpatterns +=router.urls
