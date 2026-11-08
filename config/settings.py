@@ -26,11 +26,10 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = [config('ALLOWED_HOSTS', cast=Csv())]
-
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
-# showed application, we can add more appliction
+# showed application, we can add more application
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'blog'
 ]
 
@@ -120,6 +120,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+OPENAI_APIKEY = config('OPENAI_APIKEY')
+OPENAI_MODEL = config('OPENAI_MODEL', default="gpt-4o-mini")
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
